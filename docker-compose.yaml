@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: node-app
+    restart: always
+    ports:
+      - "${NODE_PORT}:3000"
+    volumes:
+      - ./project:/app
+      - ./entrypoint.sh:/entrypoint.sh
+    environment:
+      - NODE_ENV=development
